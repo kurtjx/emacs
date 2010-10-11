@@ -111,7 +111,7 @@
 ;;Java/Javascript
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;disabled till I get JDE to compile from the submodule correctly
-(load-library "ryan-java")
+;; (load-library "ryan-java")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Groovy
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -201,7 +201,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Emms
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-library "ryan-emms")
+;;(load-library "ryan-emms")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Startup gnus after loading other things
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -229,9 +229,9 @@
  '(erc-modules (quote (button completion fill irccontrols log netsplit noncommands readonly ring scrolltobottom services smiley track)))
  '(erc-services-mode t)
  '(erc-sound-mode t)
- '(erc-sound-path (quote ("/home/ryan/.emacs.d/sounds")))
+ '(erc-sound-path (quote ("~/.emacs.d/sounds")))
  '(erc-stamp-mode t)
- '(erc-user-full-name "Ryan McGuire")
+ '(erc-user-full-name "kurtjx")
  '(fill-column 81)
  '(gnus-article-sort-functions (quote ((not gnus-article-sort-by-date))))
  '(gnus-thread-sort-functions (quote ((not gnus-thread-sort-by-date))))
@@ -243,7 +243,7 @@
  '(svn-status-hide-unmodified t)
  '(svn-status-verbose nil)
  '(twit-mode t)
- '(user-mail-address "ryan@enigmacurry.com")
+ '(user-mail-address "kurtjx@gmail.com")
  '(w3m-default-display-inline-images t))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
