@@ -8,6 +8,7 @@ You can find more about this environment at `Ryan's Blog <http://www.enigmacurry
 Some stuff didn't work for me (kurtjx), here's the install guidelines I followed for Ubuntu 10:
 
 This is all from `Ryan's Blog <http://www.enigmacurry.com/category/emacs>`_.
+
 - Enable the universe repository
 - sudo apt-get update
 - sudo apt-get install emacs-snapshot git-core automake libgconf2-dev texinfo python-setuptools
@@ -20,6 +21,7 @@ This is all from `Ryan's Blog <http://www.enigmacurry.com/category/emacs>`_.
 - sudo ./vendor-compile.sh
 
 The rope/ropemacs/ropemode stuff wasn't working so I did:
+
 - sudo apt-get install mercurial
 - mkdir /tmp/rope && cd /tmp/rope
 - hg clone http://bitbucket.org/agr/rope
