@@ -1,5 +1,5 @@
-EnigmaCurry's Emacs Config
---------------------------
+EnigmaCurry's Emacs Config - hacked by kurtjx
+---------------------------------------------
 
 This is `kurtjx's <http://kurtisrandom.com/>`_ fork of Ryan McGuire's (EnigmaCurry) Emacs Configuration.
 
