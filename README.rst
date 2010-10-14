@@ -5,7 +5,7 @@ This is `kurtjx's <http://kurtisrandom.com/>`_ fork of Ryan McGuire's (EnigmaCur
 
 You can find more about this environment at `Ryan's Blog <http://www.enigmacurry.com/category/emacs>`_.
 
-Some stuff didn't work for me (kurtjx), here's the install guidelines I followed for Ubuntu 10:
+Some stuff didn't work for me (kurtjx), here's the install guidelines I followed for Ubuntu 10 (note I've made some changes to vendor/vendor-compile.sh which make it Ubuntu-specific):
 
 This is all from `Ryan's Blog <http://www.enigmacurry.com/category/emacs>`_.
 
