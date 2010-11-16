@@ -36,7 +36,7 @@
 (require 'dired-single)
 (require 'pair-mode)
 (require 'pager)
-(require 'twit)
+;;(require 'twit)
 (require 'ledger)
 (require 'auto-complete)
 ;; pretty buffer names
@@ -95,6 +95,7 @@
 ;;CEDET
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-library "ryan-cedet")
+(require 'ecb)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Python mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -233,7 +234,7 @@
  '(bbdb-file "~/.emacs.private/dot-bbdb")
  '(ecb-layout-name "left9")
  '(ecb-maximize-ecb-window-after-selection t)
- '(ecb-options-version "2.32")
+ '(ecb-options-version "2.40")
  '(ecb-source-path (quote (("/" "/"))))
  '(ecb-tip-of-the-day nil)
  '(ecb-windows-width 0.2)
