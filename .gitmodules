@@ -10,9 +10,6 @@
 [submodule "vendor/gist-el"]
 	path = vendor/gist-el
 	url = git://github.com/defunkt/gist.el.git
-[submodule "vendor/emacs-jabber"]
-	path = vendor/emacs-jabber
-	url = git://enigmacurry.com/emacs-jabber.git
 [submodule "vendor/emms"]
 	path = vendor/emms
 	url = git://git.sv.gnu.org/emms.git

@@ -16,4 +16,4 @@ popd
 easy_install Pymacs-0.23
 
 #auctex
-apt-get install auctex
+#apt-get install auctex
