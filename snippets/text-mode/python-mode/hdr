@@ -4,7 +4,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = "Ryan McGuire (ryan@enigmacurry.com)"
+__author__ = "Kurt Jacobson (kurt@echonest.com)"
 __date__   = "`(current-time-string)`"
 
 

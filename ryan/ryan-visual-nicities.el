@@ -6,6 +6,8 @@
 (global-font-lock-mode 1)
 (color-theme-initialize)
 (color-theme-ryan)
+;set some default size
+(set-face-attribute 'default nil :height 80)
 ;Show column numbers
 (column-number-mode 1)
 (setq-default fill-column 72)

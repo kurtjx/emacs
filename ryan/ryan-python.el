@@ -2,6 +2,139 @@
 ;; Python mode customizations
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;
+;; ipython stuff ;;
+;;;;;;;;;;;;;;;;;;;
+
+;; (setq ipython-command "/usr/bin/ipython")
+
+;; (require 'cl)
+;; (require 'shell)
+;; (require 'executable)
+;; (require 'ansi-color)
+
+;; (defcustom ipython-command "ipython"
+;;   "*Shell command used to start ipython."
+;;   :type 'string
+;;   :group 'python)
+
+;; ;; Users can set this to nil
+;; (defvar py-shell-initial-switch-buffers t
+;;   "If nil, don't switch to the *Python* buffer on the first call to
+;;   `py-shell'.")
+
+;; (defvar ipython-backup-of-py-python-command nil
+;;   "HACK")
+
+
+;; (defvar ipython-de-input-prompt-regexp "\\(?:
+;; In \\[[0-9]+\\]: *.*
+;; ----+> \\(.*
+;; \\)[\n]?\\)\\|\\(?:
+;; In \\[[0-9]+\\]: *\\(.*
+;; \\)\\)\\|^[ ]\\{3\\}[.]\\{3,\\}: *\\(.*
+;; \\)"
+;;   "A regular expression to match the IPython input prompt and the python
+;; command after it. The first match group is for a command that is rewritten,
+;; the second for a 'normal' command, and the third for a multiline command.")
+;; (defvar ipython-de-output-prompt-regexp "^Out\\[[0-9]+\\]: "
+;;   "A regular expression to match the output prompt of IPython.")
+
+
+;; (if (not (executable-find ipython-command))
+;;     (message (format "Can't find executable %s - ipython.el *NOT* activated!!!"
+;;                      ipython-command))
+;;     ;; XXX load python-mode, so that we can screw around with its variables
+;;     ;; this has the disadvantage that python-mode is loaded even if no
+;;     ;; python-file is ever edited etc. but it means that `py-shell' works
+;;     ;; without loading a python-file first. Obviously screwing around with
+;;     ;; python-mode's variables like this is a mess, but well.
+;;     (require 'python-mode)
+;;     ;; turn on ansi colors for ipython and activate completion
+;;     (defun ipython-shell-hook ()
+;;       ;; the following is to synchronize dir-changes
+;;       (make-local-variable 'shell-dirstack)
+;;       (setq shell-dirstack nil)
+;;       (make-local-variable 'shell-last-dir)
+;;       (setq shell-last-dir nil)
+;;       (make-local-variable 'shell-dirtrackp)
+;;       (setq shell-dirtrackp t)
+;;       (add-hook 'comint-input-filter-functions 'shell-directory-tracker nil t)
+
+;;       (ansi-color-for-comint-mode-on)
+;;       (define-key py-shell-map [tab] 'ipython-complete)
+;;       ;; Add this so that tab-completion works both in X11 frames and inside
+;;       ;; terminals (such as when emacs is called with -nw).
+;;       (define-key py-shell-map "\t" 'ipython-complete)
+;;       ;;XXX this is really just a cheap hack, it only completes symbols in the
+;;       ;;interactive session -- useful nonetheless.
+;;       (define-key py-mode-map [(meta tab)] 'ipython-complete)
+
+;;       )
+;;     (add-hook 'py-shell-hook 'ipython-shell-hook)
+;;     ;; Regular expression that describes tracebacks for IPython in context and
+;;     ;; verbose mode.
+
+;;     ;;Adapt python-mode settings for ipython.
+;;     ;; (this works for %xmode 'verbose' or 'context')
+
+;;     ;; XXX putative regexps for syntax errors; unfortunately the
+;;     ;;     current python-mode traceback-line-re scheme is too primitive,
+;;     ;;     so it's either matching syntax errors, *or* everything else
+;;     ;;     (XXX: should ask Fernando for a change)
+;;     ;;"^   File \"\\(.*?\\)\", line \\([0-9]+\\).*\n.*\n.*\nSyntaxError:"
+;;     ;;^   File \"\\(.*?\\)\", line \\([0-9]+\\)"
+
+;;     (setq py-traceback-line-re
+;;           "\\(^[^\t >].+?\\.py\\).*\n   +[0-9]+[^\00]*?\n-+> \\([0-9]+\\)+")
+
+
+;;     ;; Recognize the ipython pdb, whose prompt is 'ipdb>' or  'ipydb>'
+;;     ;;instead of '(Pdb)'
+;;     (setq py-pdbtrack-input-prompt "\n[(<]*[Ii]?[Pp]y?db[>)]+ ")
+;;     (setq pydb-pydbtrack-input-prompt "\n[(]*ipydb[>)]+ ")
+
+;;     (setq py-shell-input-prompt-1-regexp "^In \\[[0-9]+\\]: *"
+;;           py-shell-input-prompt-2-regexp "^   [.][.][.]+: *" )
+;;     ;; select a suitable color-scheme
+;;     (unless (member "-colors" py-python-command-args)
+;;       (setq py-python-command-args
+;;             (nconc py-python-command-args
+;;                    (list "-colors"
+;;                          (cond
+;;                            ((eq frame-background-mode 'dark)
+;;                             "Linux")
+;;                            ((eq frame-background-mode 'light)
+;;                             "LightBG")
+;;                            (t ; default (backg-mode isn't always set by XEmacs)
+;;                             "LightBG"))))))
+;;     (unless (equal ipython-backup-of-py-python-command py-python-command)
+;;       (setq ipython-backup-of-py-python-command py-python-command))
+;;     (setq py-python-command ipython-command))
+
+
+;; (defadvice py-shell (around py-shell-with-history)
+;;   "Add persistent command-history support (in
+;; $PYTHONHISTORY (or \"~/.ipython/history\", if we use IPython)). Also, if
+;; `py-shell-initial-switch-buffers' is nil, it only switches to *Python* if that
+;; buffer already exists."
+;;   (if (comint-check-proc "*Python*")
+;;       ad-do-it
+;;     (setq comint-input-ring-file-name
+;;           (if (string-equal py-python-command ipython-command)
+;;               (concat (or (getenv "IPYTHONDIR") "~/.ipython") "/history")
+;;             (or (getenv "PYTHONHISTORY") "~/.python-history.py")))
+;;     (comint-read-input-ring t)
+;;     (let ((buf (current-buffer)))
+;;       ad-do-it
+;;       (unless py-shell-initial-switch-buffers
+;;         (switch-to-buffer-other-window buf)))))
+;; (ad-activate 'py-shell)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; end ipython shenanigans ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;There are TWO python modes
 ; 1) Tim Peter's python-mode.el -- this is the standard/legacy way
 ; 2) Dave Love's python.el -- this is when Dave Love got frustrated
@@ -10,7 +143,7 @@
 ;The following directory has a .nosearch file in it therefore it not in
 ;the current load-path and the default python-mode will be used instead
 ;The following loads Dave Love's python mode:
-(add-to-list 'load-path "~/.emacs.d/dave-loves-python-mode")
+;(add-to-list 'load-path "~/.emacs.d/dave-loves-python-mode")
 (load-library "python")
 
 (autoload 'python-mode "python-mode" "Python Mode." t)
@@ -34,14 +167,14 @@
 
 ;; Autofill inside of comments
 
-(defun python-auto-fill-comments-only ()
-  (auto-fill-mode 1)
-  (set (make-local-variable 'fill-nobreak-predicate)
-       (lambda ()
-         (not (python-in-string/comment)))))
-(add-hook 'python-mode-hook
-          (lambda ()
-            (python-auto-fill-comments-only)))
+;; (defun python-auto-fill-comments-only ()
+;;   (auto-fill-mode 1)
+;;   (set (make-local-variable 'fill-nobreak-predicate)
+;;        (lambda ()
+;;          (not (python-in-string/comment)))))
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (python-auto-fill-comments-only)))
 
 ;; pymacs
 (autoload 'pymacs-apply "pymacs")
@@ -189,13 +322,13 @@
 ;;Autofill comments
 ;;TODO: make this work for docstrings too.
 ;;      but docstrings just use font-lock-string-face unfortunately
-(add-hook 'python-mode-hook
-          (lambda ()
-            (auto-fill-mode 1)
-            (set (make-local-variable 'fill-nobreak-predicate)
-                 (lambda ()
-                   (not (eq (get-text-property (point) 'face)
-                            'font-lock-comment-face))))))
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (auto-fill-mode 1)
+;;             (set (make-local-variable 'fill-nobreak-predicate)
+;;                  (lambda ()
+;;                    (not (eq (get-text-property (point) 'face)
+;;                             'font-lock-comment-face))))))
 
 ;; (brm-init)
 ;; (require 'pycomplete)
@@ -221,5 +354,4 @@
 ;;   )
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 

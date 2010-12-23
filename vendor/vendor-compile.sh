@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #CEDET 
-(cd cedet && make)
+(cd cedet-1.0 && make)
+(cd ecb
 
 #Jabber
 pushd emacs-jabber
