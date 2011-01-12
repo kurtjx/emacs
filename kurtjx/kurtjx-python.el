@@ -329,10 +329,9 @@
           (list "epylint" (list local-file))))
     
       (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pylint-init)))
-
-;; TODO make this key bind work
-;;(define-key python-mode-map "\C-c e" 'flymake-display-err-menu-for-current-line)
+               '("\\.py\\'" flymake-pylint-init))
+      (define-key python-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
+      )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
