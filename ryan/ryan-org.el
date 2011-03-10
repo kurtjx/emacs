@@ -6,6 +6,7 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done 'time)
 
+(setq org-mobile-directory "/scpc:fishnchips@webdav.kurtisrandom.com:webdav.kurtisrandom.com/org/")
 (setq org-agenda-files (list "~/org/work.org"
                              "~/org/c4dm.org" 
                              "~/org/personal.org"))

@@ -273,6 +273,7 @@
   ;; If there is more than one, they won't work right.
  '(flymake-errline ((((class color)) (:background "DarkRed"))))
  '(flymake-warnline ((((class color)) (:background "DarkBlue"))))
+ '(smerge-refined-change ((t (:background "blue"))))
  '(twit-title-face ((t (:background "gray15" :underline nil))))
  '(twit-zebra-1-face ((t (:background "color-234" :foreground "color-123"))))
  '(twit-zebra-2-face ((t (:background "color-235" :foreground "color-123")))))

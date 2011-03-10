@@ -336,7 +336,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Flymake with Pyflakes
-;; (require 'flymake)
+;;(require 'flymake)
 ;; (load-library "flymake-cursor")
 ;; (when (load "flymake" t)
 ;;   (defun flymake-pyflakes-init ()
