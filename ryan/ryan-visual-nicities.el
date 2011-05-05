@@ -7,7 +7,7 @@
 (color-theme-initialize)
 (color-theme-ryan)
 ;set some default size
-(set-face-attribute 'default nil :height 80)
+(set-face-attribute 'default nil :height 120)
 ;Show column numbers
 (column-number-mode 1)
 (setq-default fill-column 72)
