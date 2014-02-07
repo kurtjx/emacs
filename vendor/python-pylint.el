@@ -53,7 +53,7 @@ Notice that using \\[next-error] or \\[compile-goto-error] modifies
   :type '(repeat string)
   :group 'python-pylint)
 
-(defcustom python-pylint-command "/usr/local/bin/pylint"
+(defcustom python-pylint-command "/usr/bin/pylint"
   "PYLINT command."
   :type '(file)
   :group 'python-pylint)

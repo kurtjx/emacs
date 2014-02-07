@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2002, 2003 Vladimir G. Sekissov
 
-;; Author: Kurt Jacobson <kurtjx@ubuntu>
-;; Created: 2010-11-16 07:38:46-0800
+;; Author: kurtjx <kurtjx@popcorn.local>
+;; Created: 2013-01-28 13:09:21-0500
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

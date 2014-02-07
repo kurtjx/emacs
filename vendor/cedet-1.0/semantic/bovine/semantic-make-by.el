@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2008 Eric M. Ludlam
 
-;; Author: Kurt Jacobson <kurtjx@ubuntu>
-;; Created: 2010-11-16 07:38:45-0800
+;; Author: kurtjx <kurtjx@popcorn.local>
+;; Created: 2013-01-28 13:09:21-0500
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

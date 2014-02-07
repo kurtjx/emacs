@@ -3,8 +3,22 @@
 ;; www.EnigmaCurry.com
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Turn off mouse interface early in startup to avoid momentary display
+;; You really don't need these; trust me.
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 ;; random crap from kurtjx
 (setq-default truncate-lines t)
+(load-file "/Users/kurtjx/emacs-for-python/epy-init.el")
+(add-to-list 'load-path "/Users/kurtjx/emacs-for-python/") ;; tell where to load the various files
+(require 'epy-setup)      ;; It will setup other loads, it is required!
+(require 'epy-python)     ;; If you want the python facilities [optional]
+(require 'epy-completion) ;; If you want the autocompletion settings [optional]
+(require 'epy-editing)    ;; For configurations related to editing [optional]
+(require 'epy-bindings)   ;; For my suggested keybindings [optional]
+(require 'epy-nose)       ;; For nose integration
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Library Paths
@@ -45,6 +59,7 @@
 ;; pretty buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+(setq ispell-program-name "/usr/local/bin/ispell")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Some misc functions that should be moved somewhere more logical
@@ -102,7 +117,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Python mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load-library "kurtjx-python")
+;;(load-library "kurtjx-python")
 (load-library "python-pep8.el")
 (load-library "python-pylint.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

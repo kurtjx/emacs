@@ -14,10 +14,10 @@ make
 popd
 
 #Pymacs
-easy_install Pymacs-0.23
+#easy_install Pymacs-0.23
 
 #pylint
-apt-get install pylint
+#apt-get install pylint
 
 #auctex
-apt-get install auctex
+#apt-get install auctex
